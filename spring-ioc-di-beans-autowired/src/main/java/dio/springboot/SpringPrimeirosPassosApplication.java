@@ -16,6 +16,8 @@ public class SpringPrimeirosPassosApplication {
 	@Bean
 	public CommandLineRunner run(ConversorJson conversor) throws Exception {
 		return args -> {
+			//https://viacep.com.br/ws/01001000/json/
+			//https://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.8
 			String json = "{\"cep\": \"01001-000\",\"logradouro\": \"Praça da Sé\",\"localidade\": \"São Paulo\"}";
 			ViaCepResponse response = conversor.converter(json);
 			System.out.println("Dados do CEP: " + response);
