@@ -17,6 +17,7 @@ public class SpringPrimeirosPassosApplication {
 		return args -> {
 			sistema.enviarConfirmacaoCadastro();
 			sistema.enviarMensagemBoasVindas();
+			sistema.enviarConfirmacaoCadastro();
 		};
 	}
 
