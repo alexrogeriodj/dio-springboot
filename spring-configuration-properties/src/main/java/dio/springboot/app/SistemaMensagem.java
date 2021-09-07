@@ -2,6 +2,7 @@ package dio.springboot.app;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -9,16 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class SistemaMensagem implements CommandLineRunner {
 
-	@Value("${nome:DIO Brasil}")
-	private String nome;
-	@Value("${email}")
-	private String email;
-	@Value("${telefones}")
-	private List<Long> telefones;
+	@Autowired
+	private Remetente remetente;
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Mensagem enviada por: " + nome + "\nE-mail:" + email + "\nCom telefones para contato: " + telefones);
+		System.out.println("Mensagem enviada por: " + remetente.getNome() + "\nE-mail:" + remetente.getEmail() + "\nCom telefones para contato: " + remetente.getTelefones());
 		System.out.println("Seu cadastro foi aprovado");
 	}
 }
