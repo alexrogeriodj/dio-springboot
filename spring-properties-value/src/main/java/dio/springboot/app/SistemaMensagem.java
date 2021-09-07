@@ -9,11 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SistemaMensagem implements CommandLineRunner {
 
-	@Value("${nome:DIO Brasil}")
 	private String nome;
-	@Value("${email}")
 	private String email;
-	@Value("${telefones}")
 	private List<Long> telefones;
 
 	@Override
