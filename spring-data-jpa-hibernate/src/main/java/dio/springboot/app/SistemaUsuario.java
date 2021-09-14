@@ -15,7 +15,6 @@ public class SistemaUsuario implements CommandLineRunner {
 		usuario.setLogin("gleyson");
 		usuario.setNomeCompleto("GLEYSON SAMPAIO");
 		usuario.setSenha("diospringjpa");
-		
-		
+		//repositório de persistência ??
 	}
 }
