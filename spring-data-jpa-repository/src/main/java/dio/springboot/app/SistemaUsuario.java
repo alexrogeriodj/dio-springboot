@@ -1,31 +1,18 @@
 package dio.springboot.app;
 
-import org.hibernate.internal.util.collections.JoinedIterable;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import dio.springboot.app.model.Usuario;
-import dio.springboot.app.repository.UsuarioRepository;
 
 @Component
 public class SistemaUsuario implements CommandLineRunner {
-
-	@Autowired
-	private UsuarioRepository repository;
-
 	@Override
 	public void run(String... args) throws Exception {
-		if(!repository.existsByLogin("gleyson")) {
-			Usuario gleyson = criarUsuarioGleyson();
-			repository.save(gleyson);
-		}
-		if(!repository.existsByLogin("admin")) {
-			Usuario admin = criarUsuarioAdmin();
-			repository.save(admin);
-		}
+		Usuario gleyson = criarUsuarioGleyson();
+		Usuario admin = criarUsuarioAdmin();
 		
-		Iterable<Usuario> usuarios = repository.findAll();
+		Iterable<Usuario> usuarios = null;
 		usuarios.forEach(u->System.out.println(u.getNomeCompleto() + " - " + u.getLogin()));
 		
 	}
